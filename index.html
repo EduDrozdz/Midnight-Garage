@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#100c18">
+  <meta name="description" content="Sua garagem depois da meia-noite. Carros personalizados, corridas e desafios.">
+  <title>Midnight Garage</title>
+  <link rel="icon"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='10' fill='%238b42f5'/%3E%3Cpath d='M8 28V12l12 12 12-12v16' fill='none' stroke='white' stroke-width='4'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+
+<body>
+  <div class="shell">
+    <aside class="sidebar">
+      <a class="brand" href="#garagem" aria-label="Midnight Garage, início"><span
+          class="brand-mark">M</span><span>MIDNIGHT<small>G A R A G E</small></span></a>
+      <p class="nav-caption">SEU REFÚGIO. SUAS REGRAS.</p>
+      <nav aria-label="Menu principal">
+        <button class="nav-item active" data-page="garagem" aria-current="page"><span>01</span> Garagem
+          <b>↗</b></button>
+        <button class="nav-item" data-page="corridas"><span>02</span> Corridas <b>↗</b></button>
+        <button class="nav-item" data-page="desafios"><span>03</span> Desafios <b>↗</b></button>
+        <button class="nav-item" data-page="historia"><span>04</span> Depois da meia-noite <b>↗</b></button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="club-badge"><span>MG</span>
+          <div>Midnight Club<small>Piloto independente</small></div>
+        </div><button id="theme-toggle" class="theme-toggle" aria-pressed="false"><span>◐</span> Ativar tema
+          claro</button>
+        <p>EST. 2026 <span>00:00 — ∞</span></p>
+      </div>
+    </aside>
+    <main>
+      <header class="topbar"><span>UNDERGROUND / <strong id="breadcrumb">GARAGEM</strong></span>
+        <div class="player"><span class="status-dot"></span><span id="header-xp">0 XP</span><span
+            class="avatar">MG</span></div>
+      </header>
+      <section id="garagem" class="page" aria-labelledby="garage-title">
+        <div class="page-heading">
+          <div>
+            <p class="eyebrow">ESCOLHA SUA ASSINATURA</p>
+            <h1 id="garage-title">A noite é sua<span>.</span></h1>
+          </div><span class="collection-count">04 <span>/ NA GARAGEM</span></span>
+        </div>
+        <div class="showcase">
+          <div class="car-stage"><img id="hero-image" src="assets/bmw.png"
+              alt="BMW M3 GTR prata e azul em uma garagem noturna">
+            <div class="stage-top"><span class="tag">CARRO SELECIONADO</span><span id="car-index">01 / 04</span></div>
+            <div class="stage-bottom"><span id="car-origin">ALEMANHA / ÍCONE DAS RUAS</span>
+              <h2 id="car-name">BMW M3 <em>GTR</em></h2>
+              <p id="car-tagline">Algumas lendas não precisam de apresentação.</p>
+            </div>
+          </div>
+          <div class="spec-panel">
+            <div class="spec-heading"><span class="eyebrow">FICHA DA MÁQUINA</span><span id="car-class"
+                class="class-tag">S</span></div>
+            <p id="car-description"></p>
+            <div id="car-stats" class="stats"></div>
+            <p class="micro">Atributos fictícios para os desafios.</p>
+            <h3>DNA DA GARAGEM</h3>
+            <ul id="car-skills" class="skills"></ul><button id="night-toggle" class="primary"
+              aria-pressed="false">Ativar modo noturno <span>↗</span></button>
+            <p id="night-message" class="mode-message" aria-live="polite">A cidade está esperando.</p>
+          </div>
+        </div>
+        <div class="section-heading">
+          <h2>Sua coleção <span> / 04</span></h2>
+          <p>Selecione um carro para explorar</p>
+        </div>
+        <div id="car-grid" class="car-grid"></div>
+        <div class="page-foot"><span>QUATRO MÁQUINAS. UMA GARAGEM.</span><span>CONSTRUÍDO PARA A NOITE ↗</span></div>
+      </section>
+      <section id="corridas" class="page" aria-labelledby="races-title" hidden>
+        <div class="page-heading">
+          <div>
+            <p class="eyebrow">O ASFALTO GUARDA HISTÓRIAS</p>
+            <h1 id="races-title">Próxima largada<span>.</span></h1>
+          </div><span class="tag">CIRCUITOS FICTÍCIOS</span>
+        </div>
+        <div class="races-layout">
+          <div>
+            <div class="section-heading">
+              <h2>Corridas favoritas</h2>
+              <p>Marque sua favorita</p>
+            </div>
+            <ol id="race-list" class="race-list"></ol>
+          </div>
+          <article class="xp-panel">
+            <p class="eyebrow">SUA REPUTAÇÃO</p>
+            <h2>Cada volta conta.</h2>
+            <div class="xp-number"><output id="xp-value">0</output><span>XP</span></div>
+            <p id="rank">Piloto iniciante</p><progress id="xp-progress" max="100" value="0"
+              aria-label="Progresso para o próximo nível"></progress>
+            <p id="xp-next" class="micro">100 XP para o próximo nível</p>
+            <div class="xp-buttons"><button id="add-xp" class="primary">+10 XP</button><button id="remove-xp"
+                class="secondary">−5 XP</button></div>
+            <p id="xp-feedback" aria-live="polite">Treine, evolua e conquiste seu espaço.</p>
+          </article>
+        </div>
+      </section>
+      <section id="desafios" class="page" aria-labelledby="quiz-title" hidden>
+        <div class="page-heading">
+          <div>
+            <p class="eyebrow">CONHECIMENTO TAMBÉM É POTÊNCIA</p>
+            <h1 id="quiz-title">Prove que entende<span>.</span></h1>
+          </div><span class="tag">QUIZ / 3 PERGUNTAS</span>
+        </div>
+        <article class="quiz-panel">
+          <div class="quiz-top"><span id="quiz-step">PERGUNTA 01 / 03</span><span id="quiz-score">0 ACERTOS</span></div>
+          <progress id="quiz-progress" value="0" max="3" aria-label="Progresso do quiz"></progress>
+          <div id="quiz-content"></div>
+          <p id="quiz-feedback" aria-live="polite"></p><button id="quiz-next" class="primary" hidden>Próxima pergunta
+            →</button>
+        </article>
+        <p class="section-note">Sem cronômetro. Só você e o que sabe sobre a garagem.</p>
+      </section>
+      <section id="historia" class="page" aria-labelledby="story-title" hidden>
+        <div class="page-heading">
+          <div>
+            <p class="eyebrow">UMA NOITE. SUAS ESCOLHAS.</p>
+            <h1 id="story-title">Depois da meia-noite<span>.</span></h1>
+          </div><span class="tag">HISTÓRIA INTERATIVA</span>
+        </div>
+        <article class="story-panel">
+          <div class="story-art"><img id="story-image" src="assets/bmw.png" alt="Carro selecionado na garagem"><span
+              id="story-chapter">CAPÍTULO 01</span></div>
+          <div class="story-copy">
+            <p id="story-location" class="eyebrow"></p>
+            <h2 id="story-heading" tabindex="-1"></h2>
+            <p id="story-text"></p>
+            <div id="story-choices"></div><button id="story-restart" class="text-button" hidden>↺ Voltar ao
+              início</button>
+          </div>
+        </article>
+        <p class="section-note">Uma história fictícia em circuitos fechados. Cada decisão muda o caminho.</p>
+      </section>
+      <footer><span>MIDNIGHT GARAGE</span><span>Projeto de estudo • Inspirado na cultura automotiva</span></footer>
+    </main>
+  </div>
+</body>
+
+</html>
